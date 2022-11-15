@@ -6,19 +6,18 @@ const menuSwitch = () => {
 
 const buttonActive = () => {
   if ($("#id").val() !== "" && $("#pw").val() !== "") {
+    $("#signIn").attr('disabled',false)
     $("#signIn").addClass("active");
+
   } else {
+    $("#signIn").attr('disabled',true)
     $("#signIn").removeClass("active");
   }
 };
 
 $(".login-form").submit((e) => {
   e.preventDefault();
-  const userData = {
-    id: $("#id").val(),
-    pw: $("#pw").val(),
-  };
-  console.log(userData);
+
 });
 
 $(".register-form").submit((e) => {

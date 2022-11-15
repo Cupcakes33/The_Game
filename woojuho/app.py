@@ -23,7 +23,7 @@ def home():
     token_receive = request.cookies.get('mytoken')
     try:
         payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
-        user_info = db.user.find_one({"id": payload['id']})
+        user_info = db.user.find_one({"user_id": payload['user_id']})
         return render_template('index.html')
     except jwt.ExpiredSignatureError:
         return redirect(url_for('login', msg='토큰이 만료되었습니다.'))
@@ -48,7 +48,7 @@ def api_login():
     login_pw = request.form['login_pw']
 
     pw_hash = hashlib.sha256(login_pw.encode('utf-8')).hexdigest()
-    result = db.user.find_one({'id':login_id, 'pw':pw_hash})
+    result = db.user.find_one({'user_id':login_id, 'user_pw':pw_hash})
 
     if result is not None:
         payload = {
@@ -69,7 +69,7 @@ def api_register():
 
     pw_hash = hashlib.sha256(regist_pw.encode('utf-8')).hexdigest()
 
-    db.user.insert_one({'id':regist_id, 'pw':pw_hash, 'nickname': regist_nickname})
+    db.user.insert_one({'user_id':regist_id, 'user_pw':pw_hash, 'user_nickname': regist_nickname, 'score':0})
     return jsonify({'result':'success'})
 
 

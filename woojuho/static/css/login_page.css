@@ -112,10 +112,12 @@ body {
   color: white;
   background: #516dff;
   opacity: 0.3;
+
 }
 
 #signIn.active {
   opacity: 1;
+  cursor: pointer;
 }
 
 .login-signin-link {
