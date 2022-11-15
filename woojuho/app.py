@@ -7,6 +7,7 @@ import certifi
 import jwt
 import datetime
 import hashlib
+import json
 
 ca = certifi.where()
 client = MongoClient('mongodb+srv://cupcakes33:1q2w3e4r!@maindb.ozotx3u.mongodb.net/?retryWrites=true&w=majority', tlsCAFile=ca)
@@ -60,15 +61,17 @@ def api_login():
         return jsonify({'result':'fail', 'msg':'invalid ID or PW'})
 
 
-# @app.rout('/api/register', methods=['POST'])
-# def api_register():
-#     regist_id = request.form['regist_id']
-#     regist_pw = request.form['regist_pw']
-#     regist_nickname = request.form['regist_nickname']
-#
-#     pw_hash = hashlib.sha256(regist_pw.encode('utf-8')).hexdigest()
-#
-#
+@app.route('/api/register', methods=['POST'])
+def api_register():
+    regist_id = request.form['regist_id']
+    regist_pw = request.form['regist_pw']
+    regist_nickname = request.form['regist_nickname']
+
+    pw_hash = hashlib.sha256(regist_pw.encode('utf-8')).hexdigest()
+
+    db.user.insert_one({'id':regist_id, 'pw':pw_hash, 'nickname': regist_nickname})
+    return jsonify({'result':'success'})
+
 
 
 # 랭킹 확인 부분

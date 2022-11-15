@@ -4,7 +4,7 @@ const registAccount = () => {
     url: "/api/register",
     data: {
       regist_id: $('#regist_id').val(),
-      regist_id: $('#regist_pw').val(),
+      regist_pw: $('#regist_pw').val(),
       regist_nickname: $('#regist_nickname').val(),
     },
     success: (res) => {
