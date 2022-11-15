@@ -1,0 +1,9 @@
+/*516dff*/
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Press+Start+2P&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Press Start 2P', cursive;
+}

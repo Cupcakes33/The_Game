@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/login_page.css') }}"
+    />
+  </head>
+  <body>
+
+    <main class="login-window">
+      <!-- login Form -->
+
+      <section class="login-form-wrapper">
+        <div class="login-form-header">
+          <h1>Welcome The Game!</h1>
+          <p>Please login</p>
+        </div>
+        <form class="login-form">
+          <div class="login-form-contents">
+            <div class="login-form-item">
+              <label for="id">Enter your ID</label>
+              <input type="text" id="id" class="roundDesign" />
+            </div>
+            <div class="login-form-item">
+              <label for="pw">Enter your Password</label>
+              <input type="password" id="pw" class="roundDesign" />
+            </div>
+            <div class="login-form-item">
+              <div class="login-form-checkbox">
+                <input type="checkbox" id="rememberCheck" />
+                <label for="rememberCheck" id="remembercheckLabel"
+                  >Remember Me!</label
+                >
+              </div>
+            </div>
+          </div>
+          <div class="login-Signup-button">
+            <button type="submit" id="signIn" class="roundDesign" onclick="login()">
+              Sign In
+            </button>
+          </div>
+          <div class="login-signin-link">
+            <a href="#" class="login-form-signup-link">Sign up ?</a>
+          </div>
+        </form>
+      </section>
+
+      <!-- register Form -->
+
+      <section class="register-form-wrapper">
+        <div class="register-form-header">
+          <h1>Regist Account</h1>
+        </div>
+        <form class="register-form">
+          <div class="register-form-item">
+            <label for="regist_id" class="labelDesign">User ID</label>
+            <input type="text" id="regist_id" class="roundDesign" />
+            <div class="creatable-check">
+              <span class="invalidID"
+                >Duplicate ID. Please use a different ID</span
+              >
+              <span class="currectID"> That ID can be creat !</span>
+            </div>
+          </div>
+
+          <div class="register-form-item">
+            <label for="regist_pw" class="labelDesign">Password</label>
+            <input type="password" id="regist_pw" class="roundDesign" />
+            <div class="password-check">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M4.5 12.75l6 6 9-13.5"
+                />
+              </svg>
+            </div>
+          </div>
+          <div class="register-form-item">
+            <label for="reconfirmation_pw" class="labelDesign"
+              >Password Reconfirmation</label
+            >
+            <input type="password" id="reconfirmation_pw" class="roundDesign" />
+          </div>
+
+          <div class="register-form-item">
+            <label for="regist_nickname" class="labelDesign"
+              >Your Nickname</label
+            >
+            <input type="text" id="regist_nickname" class="roundDesign" />
+          </div>
+          <div class="register-Signup-button">
+            <button type="submit" id="signUp" class="roundDesign">
+              Sign Up
+            </button>
+          </div>
+        </form>
+      </section>
+      <section class="login-logo-wrapper">
+        <img src="{{url_for('static',filename='img/dot_cat.jpeg')}}" />
+      </section>
+    </main>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.js"
+      integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+      crossorigin="anonymous"
+    ></script>
+    <script src="{{url_for('static',filename='js/register.js')}}"></script>
+    <script src="{{url_for('static',filename='js/login.js')}}"></script>
+    <script src="{{url_for('static',filename='js/login_page.js')}}"></script>
+  </body>
+</html>
