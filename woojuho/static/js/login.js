@@ -6,7 +6,7 @@ const login = () => {
     $.ajax({
         type: 'POST',
         url: '/api/login',
-        data: {login_id: $('#id').val(), login_pw: $('$pw').val()},
+        data: {login_id: $('#id').val(), login_pw: $('#pw').val()},
         success: (response) => {
             if(response['result'] === 'success'){
                 $.cookie('mytoken', response['token'])

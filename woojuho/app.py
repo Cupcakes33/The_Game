@@ -36,7 +36,7 @@ def login():
 
 @app.route('/register')
 def register():
-    return render_template('login_page.html', msg=msg)
+    return render_template('login_page.html')
 
 # @app.route('/api/login', methods=['POST'])
 # def api_login():
@@ -58,6 +58,49 @@ def api_login():
         return jsonify({'result':'success', 'token':token})
     else:
         return jsonify({'result':'fail', 'msg':'invalid ID or PW'})
+
+
+# @app.rout('/api/register', methods=['POST'])
+# def api_register():
+#     regist_id = request.form['regist_id']
+#     regist_pw = request.form['regist_pw']
+#     regist_nickname = request.form['regist_nickname']
+#
+#     pw_hash = hashlib.sha256(regist_pw.encode('utf-8')).hexdigest()
+#
+#
+
+
+# 랭킹 확인 부분
+@app.route('/rank')
+def rank():
+    token_receive = request.cookies.get('mytoken')
+    try:
+        payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
+        user_info = db.find_one({"user_id": payload['id']})
+        return render_template('rank.html', nickname=user_info["user_nickname"],score=user_info["score"])
+    except jwt.ExpiredSignatureError:
+        return redirect(url_for("login", msg="로그인 시간이 만료되었습니다."))
+    except jwt.exceptions.DecodeError:
+        return redirect(url_for("login", msg="로그인 정보가 존재하지 않습니다."))
+
+
+@app.route("/ranks", methods=["GET"])
+def rank_get():
+    data = list(db.find({}, {'_id': False}))
+
+    return jsonify({'data': data})
+
+
+@app.route("/ranks", methods=["POST"])
+def rank_post():
+    data = json.loads(request.form['data'])
+    user_Id = data['user_id']
+    score = int(data['score'])
+
+    db.update_one({'user_id': user_Id},{'$set':{'score':score}})
+
+    return jsonify({'msg': '스코어 업데이트 완료'})
 
 
 if __name__ == '__main__':
