@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/css/login.css">
+</head>
+<body>
+
+<main class="login-container">
+    <section class="login-logo-container">
+        <img src="../static/img/dot_cat.jpeg">
+        <a link="/login"></a>
+    </section>
+
+    <section class="login-contents-container">
+        <h1>Welcome The Game</h1>
+        <form class="login-form">
+            <div class="login-form-contents-wrapper">
+                <label for="login-id">Username</label>
+                <input type="text" id="login-id">
+            </div>
+            <div class="login-form-contents-wrapper" style="margin-bottom: 2rem">
+                <label for="login-pw">Password</label>
+                <input type="password" id="login-pw">
+            </div>
+            <div class="login-form-contents-wrapper">
+                <button class='round-button' type="submit" id="login-submit" disabled="disabled">
+                Get Started !
+                </button>
+            </div>
+        </form>
+        <div class="login-register-link">
+            <a href="/register">or Create Account</a>
+        </div>
+    </section>
+</main>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+<script src="../static/js/login.js"></script>
+</body>
+</html>

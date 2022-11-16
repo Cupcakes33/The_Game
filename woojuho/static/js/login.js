@@ -1,26 +1,46 @@
-// {% if msg %}
-//     alert("{{ msg }}")
-// {% endif %}
+// login Form control
 
-const login = () => {
+const loginId = $('#login-id')
+const loginPw = $('#login-pw')
+const loginSubmit = $('#login-submit')
 
+
+
+const isInputCheck = () => {
+    if(loginId.val() !== '' && loginPw.val() !== '' && loginId.val().length > 5 && loginPw.val().length > 5){
+        loginSubmit.attr('disabled',false)
+        loginSubmit.addClass('active')
+    }else {
+        loginSubmit.attr('disabled',true)
+        loginSubmit.removeClass('active')
+    }
+}
+
+loginId.on('input',isInputCheck)
+loginPw.on('input',isInputCheck)
+
+const signin = () => {
     $.ajax({
-        type: 'POST',
-        url: '/api/login',
-        data: {login_id: $('#id').val(), login_pw: $('#pw').val()},
-        success: (response) => {
-
-            if (response['result'] === 'success') {
-                $.cookie('mytoken', response['token'])
-
-                alert('로그인 완료');
+        type: "POST",
+        url:'/api/login',
+        data: {
+            login_id: loginId.val(),
+            login_pw: loginPw.val(),
+        },
+        success: function (res) {
+            if(res['result']==='success'){
+                $.cookie('mytoken', res['token'])
+                alert('로그인 완료 !')
+                window.location.href ='./'
             } else {
-
-                alert(response['msg'])
+                alert(res['msg'])
             }
         }
     })
-
 }
 
+loginSubmit.click((e)=>{
+    e.preventDefault()
+    signin()
+})
 

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/css/register.css">
+</head>
+<body>
+
+<main class="login-container">
+    <section class="login-logo-container">
+        <img src="../static/img/dot_cat.jpeg">
+    </section>
+    <section class="login-contents-container">
+        <h1>We are the Friend</h1>
+        <form class="login-form">
+            <div class="login-form-contents-wrapper">
+                <label for="register-id" class="username-label">Username</label>
+                <input type="text" id="register-id">
+                <span class="regist-check-text username-check">유저이름은 여섯글자 이상이어야 합니다. </span>
+
+                <button type="button" class="duplicate-button duplicate-id true">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-check" width="28"
+                         height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none"
+                         stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <circle cx="12" cy="12" r="9"/>
+                        <path d="M9 12l2 2l4 -4"/>
+                    </svg>
+                </button>
+
+
+            </div>
+            <div class="login-form-contents-wrapper">
+                <label for="register-nickname" class="nickname-label">Nickname</label>
+                <input type="text" id="register-nickname">
+                <span class="regist-check-text nickname-check">닉네임은 두글자 이상이어야 합니다. </span>
+
+                <button type="button" class="duplicate-button duplicate-nickname true">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-check" width="28"
+                         height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none"
+                         stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <circle cx="12" cy="12" r="9"/>
+                        <path d="M9 12l2 2l4 -4"/>
+                    </svg>
+                </button>
+
+
+            </div>
+            <div class="login-form-contents-wrapper">
+                <label for="register-pw" class="password-label">Password</label>
+                <input type="password" id="register-pw">
+                <span class="regist-check-text password-check">영문, 숫자, 특수기호의 조합으로 여덟글자 이상 입력해주세요. </span>
+
+            </div>
+            <div class="login-form-contents-wrapper" style="margin-bottom: 1.5rem">
+                <label for="checking-pw" class="checkpw-label">Repeat Password</label>
+                <input type="password" id="checking-pw">
+                <span class="regist-check-text repeat-check">입력하신 비밀번호와 일치하지 않습니다. </span>
+
+            </div>
+            <div class="login-form-contents-wrapper">
+                <button class="round-button" type="submit" id="register-submit" disabled="disabled">
+                    Create Account !
+                </button>
+            </div>
+        </form>
+
+    </section>
+
+</main>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+<script src="../static/js/register.js"></script>
+</body>
+</html>
