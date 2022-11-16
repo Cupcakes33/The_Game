@@ -9,7 +9,8 @@
 
 <main class="login-container">
     <section class="login-logo-container">
-        <img src="../static/img/dot_cat.jpeg">
+        <a href="login"> <img src="../static/img/dot_cat.jpeg"></a>
+
     </section>
     <section class="login-contents-container">
         <h1>We are the Friend</h1>
@@ -19,7 +20,7 @@
                 <input type="text" id="register-id">
                 <span class="regist-check-text username-check">유저이름은 여섯글자 이상이어야 합니다. </span>
 
-                <button type="button" class="duplicate-button duplicate-id true">
+                <button type="button" class="duplicate-button duplicate-id">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-check" width="28"
                          height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none"
                          stroke-linecap="round" stroke-linejoin="round">
@@ -36,7 +37,7 @@
                 <input type="text" id="register-nickname">
                 <span class="regist-check-text nickname-check">닉네임은 두글자 이상이어야 합니다. </span>
 
-                <button type="button" class="duplicate-button duplicate-nickname true">
+                <button type="button" class="duplicate-button duplicate-nickname">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-check" width="28"
                          height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none"
                          stroke-linecap="round" stroke-linejoin="round">
@@ -64,6 +65,7 @@
                 <button class="round-button" type="submit" id="register-submit" disabled="disabled">
                     Create Account !
                 </button>
+                <span class="duplicate-check-text">중복된 아이디와 닉네임인지 확인이 필요합니다. </span>
             </div>
         </form>
 

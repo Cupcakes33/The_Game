@@ -24,9 +24,7 @@ def home():
     token_receive = request.cookies.get('mytoken')
     try:
         payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
-        print(payload)
         user_info = db.user.find_one({"user_id": payload['id']})
-        print(user_info)
         return render_template('index.html')
     except jwt.ExpiredSignatureError:
         return redirect(url_for("login", msg="로그인 시간이 만료되었습니다."))
@@ -94,6 +92,35 @@ def api_login():
         return jsonify({'result': 'success', 'token': token})
     else:
         return jsonify({'result': 'fail', 'msg': '아이디/비밀번호가 일치하지 않습니다.'})
+
+# [닉네임, 유저네임 체크]
+@app.route('/api/duplicate/id', methods=['GET'])
+def api_duplicateCheck_id():
+    id_receive = request.args.get('id_give')
+    print(id_receive)
+    duplicateId = db.user.find_one({'user_id': id_receive})
+    print(duplicateId)
+    if duplicateId == None:
+        return jsonify({'result': 'not_duplicate'})
+    else:
+        return jsonify({'result': 'duplicate'})
+
+
+@app.route('/api/duplicate/nickname', methods=['GET'])
+def api_duplicateCheck_nickname():
+    nickname_receive = request.args.get('nickname_give')
+    print(nickname_receive)
+    duplicateNickname = db.user.find_one({'user_nickname': nickname_receive})
+    print(duplicateNickname)
+    if duplicateNickname == None:
+        return jsonify({'result': 'not_duplicate'})
+    else:
+        return jsonify({'result': 'duplicate'})
+
+
+
+
+
 
 
 # [유저 정보 확인 API]

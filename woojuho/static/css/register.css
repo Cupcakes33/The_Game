@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Press+Start+2P&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Noto+Sans+KR&display=swap');
 
 :root {
     --main-bg: #516dff;
@@ -10,7 +11,8 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    font-family: "Press Start 2P", cursive;
+    /*font-family: "Press Start 2P", cursive;*/
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 body {
@@ -52,6 +54,12 @@ body {
     position: relative;
 }
 
+.login-logo-container a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .login-logo-container img {
     width: 20%;
     border-radius: 50%;
@@ -74,7 +82,7 @@ body {
 }
 
 .login-contents-container h1 {
-    font-size: 1.4rem;
+    font-size: 2rem;
     margin-bottom: 2rem;
 }
 
@@ -112,22 +120,25 @@ box-shadow: inset 1px 1px 2px 0px var(--main-bg), 1px 1px 2px 0px var(--main-bg)
     font-size: 0.7rem;
     position: absolute;
     z-index: 10;
-    top: -8px;
+    top: -11px;
     left: 30px;
     background: white;
-    padding: 3px;
-    border-radius: 50px;
+    padding: 2px;
+    border-radius: 5px;
 }
 
 .round-button {
+
     width: 100%;
     height: 3rem;
     padding: 0 2rem;
     background: var(--main-bg);
+    color: white;
     border: none;
     opacity: 0.3;
     outline: none;
     border-radius: 25px;
+    transition: all 0.3s
 }
 
 .login-form button.active {
@@ -180,6 +191,10 @@ box-shadow: inset 1px 1px 2px 0px var(--main-bg), 1px 1px 2px 0px var(--main-bg)
     cursor: pointer;
     border: none;
     border-radius: 25px;
+
+}
+
+.duplicate-button svg {
     transition: all 0.3s;
 }
 
@@ -198,4 +213,16 @@ box-shadow: inset 1px 1px 2px 0px var(--main-bg), 1px 1px 2px 0px var(--main-bg)
 
 .duplicate-nickname.false svg{
     stroke: red;
+}
+
+.duplicate-check-text {
+    font-size: 0.5rem;
+}
+
+.duplicate-check-text{
+    display: none;
+    position: absolute;
+    bottom: -13px;
+    left: 30px;
+    color: red;
 }
