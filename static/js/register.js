@@ -25,11 +25,9 @@ const submitButtonActive = () => {
     if (usernameCheck.hasClass('isDone') && nicknameCheck.hasClass('isDone') &&
         passwordCheck.hasClass('isDone') && repeatCheck.hasClass('isDone') &&
         duplicateId.hasClass('true') && duplicateNickname.hasClass('true')) {
-        console.log(1)
         registerSubmit.addClass('active')
         registerSubmit.attr('disabled', false)
     } else {
-        console.log(2)
         registerSubmit.removeClass('active')
         registerSubmit.attr('disabled', true)
     }

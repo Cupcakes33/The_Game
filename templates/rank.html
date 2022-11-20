@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+    <meta charset="UTF-8">
+    <title>The Game</title>
+    <link rel="stylesheet" href="../static/css/rank.css">
+    <script>
+        $(document).ready(function () {
+            {% if game_end %}
+            $('#subtitle').html(`{{nickname}}님의 이번 게임 점수는 <u>{{sub_score}}점</u>이며, 최고 기록은 <u>{{score}}점</u> 입니다.`)
+            $('#gamestart').text('다시하기')
+           {% endif %}
+
+            data_get()
+        })
+
+        function data_get() {
+            let rank_num = 1;
+            let rank_data;
+
+            $.ajax({
+                url: "/ranks",
+                data: {},
+                success: function (response) {
+                    rank_data = response['data'].sort(function (a, b) {
+                        return b.score - a.score;
+                    })
+
+                    let count = (response['data'].length < 8)? response['data'].length:8
+
+                    for (i = 0; i < count; i++) {
+                        $("#rank_table").append(`<tr>
+                <th>${rank_num}</th>
+                <td>${rank_data[i]['user_nickname']}</td>
+                <td>${rank_data[i]['score'].toLocaleString()}</td>
+            </tr>`);
+                        rank_num++
+                    }
+                }
+            });
+        }
+
+        function logout() {
+            $.removeCookie('mytoken', {path: '/'})
+            window.location.href = '../login'
+        }
+
+        function logo() {
+            window.location.href = '../login'
+        }
+    </script>
+    <title>The Game</title>
+
+</head>
+
+<body>
+<main class="rank-container">
+    <section class="rank-logo-container">
+        <img src="../static/img/dot_cat.jpeg" onclick="logo()">
+    </section>
+
+    <section class="rank-contents-container">
+        <h1><b>The Game <u>Rank</u></b></h1>
+        <p class="subtitle" id="subtitle">{{nickname}}님의 최고 기록은 <u>{{score}}점</u> 입니다.</p>
+        <table class="table"
+               style="border-collapse: collapse; border-radius: 7px; text-align: center;  overflow: hidden;">
+            <thead>
+            <tr style="background-color: #516dff; color:white;">
+                <th>순위</th>
+                <th>닉네임</th>
+                <th>점수</th>
+            </tr>
+            </thead>
+            <tbody id="rank_table">
+            </tbody>
+        </table>
+        <div style="position:absolute; bottom:0px; margin-bottom: 15px; width: 100%; display:flex; flex-direction: row; justify-content: center;">
+            <button class="round-button" id="gamestart" onclick="window.location.href = '../game'">게임시작</button>
+            <button class="round-button-danger" onclick="logout()">로그아웃</button>
+        </div>
+    </section>
+</main>
+</body>
+
+</html>

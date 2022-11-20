@@ -30,7 +30,7 @@ const signin = () => {
         success: function (res) {
             if(res['result']==='success'){
                 $.cookie('mytoken', res['token'])
-                alert('로그인 완료 !')
+                console.log('로그인 완료 !')
                 window.location.href ='./'
             } else {
                 alert(res['msg'])

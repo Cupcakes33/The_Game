@@ -1,0 +1,243 @@
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Press+Start+2P&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Noto+Sans+KR&display=swap');
+
+:root {
+    --main-bg: #516dff;
+    --sub-c1: #e9e9e9;
+    --sub-c2: #73c0b0;
+    --danger: #FA7070;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    /*font-family: "Press Start 2P", cursive;*/
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+body {
+    background: var(--main-bg);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.index-container {
+    width: 30%;
+    height: 90vh;
+    min-width: 550px;
+    min-height: 600px;
+    border-radius: 25px;
+    overflow: hidden;
+
+}
+
+
+.index-logo-container {
+    width: 100%;
+    height: 30%;
+    background: var(--sub-c1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.index-logo-container a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.index-logo-container img {
+    width: 20%;
+    border-radius: 50%;
+    transition: all 0.3s
+}
+
+
+.index-logo-container img:hover {
+    transform: scale(1.1);
+}
+
+.index-contents-container {
+    width: 100%;
+    height: 70%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 25px;
+    align-items: center;
+
+}
+
+.comments-wraper {
+    width: 100%;
+    overflow-y: scroll;
+}
+
+.comments-wraper::-webkit-scrollbar {
+    display: none;
+}
+
+.index-contents-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+}
+
+.index-buttons {
+    width: 45%;
+    height: 3rem;
+    border: none;
+    padding: 0 2rem;
+    outline: none;
+    font-size: 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    background-color: var(--main-bg);
+    color: white;
+    transition: all 0.3s;
+}
+
+.index-buttons:hover {
+    transform: scale(1.1);
+}
+
+.index-buttons-danger {
+    width: 45%;
+    height: 3rem;
+    border: none;
+    padding: 0 2rem;
+    outline: none;
+    font-size: 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    background-color: var(--danger);
+    color: white;
+    transition: all 0.3s;
+}
+
+.index-buttons-danger:hover {
+    transform: scale(1.1);
+}
+
+
+.comments-form-input{
+    width: 100%;
+    height: 5rem;
+    border-radius: 25px;
+    border: none;
+    resize: none;
+    border: 0.8px solid #e9e9e9;
+    padding: 10px 15% 10px 10px;
+;
+}
+
+.comments-form-input:focus {
+box-shadow: inset 1px 1px 2px 0px var(--main-bg), 1px 1px 2px 0px var(--main-bg);
+}
+.comment-list{
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-list span{
+    font-size: 0.7rem;
+    margin-left: 0.7rem;
+}
+
+.comment-content {
+    width: max-content;
+    max-width: 500px;
+    word-wrap: break-word;
+
+;
+    border-radius: 10px;
+    background: var(--sub-c1);
+    padding: 10px;
+    font-size: 0.7rem;
+}
+
+
+.title {
+  line-height: 1.4px;
+  font-size: 80px;
+  margin-top: 0px;
+}
+
+
+.btn {
+  border: 0;
+  background-color: #fff;
+  color: #516dff;
+  font-family: inherit;
+  cursor: pointer;
+    font-size: 30px;
+}
+
+.form-control{
+  font-size: 30px;
+  padding: 5px;
+}
+
+.btns > button {
+  margin-top: 50px;
+  margin-bottom:  50px;
+  width: 250px;
+  height: 80px;
+}
+
+.index-comment-table {
+  border-collapse: collapse;
+  border-radius: 1em;
+  overflow: hidden;
+
+}
+
+
+
+.comment-box{
+    width: 100%;
+    height: 75%;
+}
+
+.index-comments-form {
+    position: relative;
+    width: 100%;
+}
+
+#comment-insert-btn {
+    position: absolute;
+    color: white;
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    right: 3%;
+    transform: translateY(-50%);
+    border: none;
+    border-radius: 50%;
+    background: var(--main-bg);
+}
+
+#comment-insert-btn svg {
+    width: 50%;
+    height: 50%;
+}
+
+#report-button {
+  color: red;
+    cursor: pointer;
+}

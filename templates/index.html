@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>The Game</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/gamestart.css">
+</head>
+
+
+<body>
+<div class="screen">
+    <main class="index-container">
+        <section class="index-logo-container">
+            <img src="../static/img/dot_cat.jpeg">
+            <a link="/login"></a>
+        </section>
+        <section class="index-contents-container">
+            <div style="width: 100%">
+            <div class="index-contents-buttons">
+                <button class="index-gameplay-btn index-buttons" id="start-btn" onclick="window.location.href='./game'">Play Game</button>
+                <button class="index-rankpage-btn index-buttons" id="Rank-btn" onclick="window.location.href='./rank'">Rank</button>
+                <button class="index-rankpage-btn index-buttons-danger" onclick="logout()">Logout</button>
+            </div>
+            <form class="index-comments-form" style="margin-top:20px">
+
+                <textarea class="comments-form-input" placeholder="불쾌감을 주거나 인격과 명예를 침해하는 댓글 작성 시 &#13;신고를 통해 댓글 활동이 제재될 수 있습니다."></textarea>
+                <button type="button" class="index-commentsave-btn" id="comment-insert-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" />
+</svg>
+                </button>
+            </form>
+                </div>
+            <div class='comments-wraper'>
+            <div class="comment-box">
+
+                </div>
+            </div>
+
+
+        </section>
+    </main>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+<script src="../static/js/index.js"></script>
+</body>
+</html>
